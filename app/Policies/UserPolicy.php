@@ -42,7 +42,7 @@ class UserPolicy
         return false;
     }
 
-    public function delete(User $user)
+    public function delete(User $user, User $model)
     {
         if($user->isAdmin()) {
             return true;

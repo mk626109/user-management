@@ -67,17 +67,15 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
-
         return view('users/edit', ['user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
@@ -85,11 +83,10 @@ class UserController extends Controller
                 'required',
                 'email',
                 'max:255',
-                Rule::unique('users')->ignore($id),
+                Rule::unique('users')->ignore($user->id),
             ],
         ]);
 
-        $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
@@ -100,9 +97,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        User::find($id)->delete();
+        $user->delete();
 
         return response()->json([
             'message' => 'User deleted successfully!',
