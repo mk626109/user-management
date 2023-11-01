@@ -1,7 +1,7 @@
 ## Project Setup
 
-- Set up a .env file, copy the data from .env.example, and fill in the database details.
-- Now, run `composer install` inside the project.
+- Run `composer install` inside the project.
+- Now, Set up a .env file, copy the data from .env.example, and fill in the database details.
 - Generate the encryption key `php artisan key:generate`.
 - Run migrations `php artisan migrate`.
 - Run seeder command `php artisan db:seed`.
