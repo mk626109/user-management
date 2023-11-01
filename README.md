@@ -5,7 +5,7 @@
 - Generate the encryption key `php artisan key:generate`.
 - Run migrations `php artisan migrate`.
 - Run seeder command `php artisan db:seed`.
-- Serve the project
+- Serve the project and open `http://localhost:8000`
 - Now, You can login and register. To login as admin, use `admin@example.com/password`
 - You are able to use the project.
 - Now, For social logins, you need to create the App on both the facebook and google.
